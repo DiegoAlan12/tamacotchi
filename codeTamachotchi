@@ -1,0 +1,61 @@
+import threading
+import time
+import os
+
+sacrificios = 100
+adoracion = 0
+energia = 100
+vida = 100    
+tribu = 10
+animal = 5
+humano = 2
+alabar = 0
+
+def dios(vida = 100, adoracion = 100, energia = 100):
+
+    while (vida > 0 and vida <= 100):
+            vida = vida - 1
+            os.system("cls")
+            print("Sigo vivo, como dijiera Joan Sebastian")
+            time.sleep(2)
+    if( vida == 90):
+        print("Quiero jugar")
+    elif(vida == 70 or vida == 40):
+        os.system("cls")
+        print("Tengo hambreeeeeee")
+        menu = int(
+            input("1. Dame una tribu\n2. Dame un animal\n3.Dame un humano "))
+        if(menu == 1):
+            vida = vida + tribu
+        elif (menu == 2):
+            vida = vida + animal
+        elif (menu == 3):
+            vida = vida + humano
+        else:
+            print("Ah ok")
+            print("Bye")
+    elif (vida == 35):
+        print("Quiero dormir")
+        while(adoracion > 0 and adoracion <= 10):
+            adoracion = adoracion+1
+            vida = vida + 3
+            time.sleep(1)
+            print("Bendiciones para todos!")
+    elif(vida == 10):
+        print("Estoy muriendo!!!!")
+    elif(vida == 5):
+        print("Andale pa, ayudame!")
+        menu1 = int(input("1. Dame una Vitamna \n2. Matar\n")) 
+        if(menu1 == 1):
+            vida = vida + 80
+            adoracion = 70
+        else:
+            print("Te veré acá arriba prro")
+            print("Tu dios ha muerto")
+
+
+if __name__ == "__main__":
+    t = threading.Thread(target=dios)
+    t.start()
+        
+
